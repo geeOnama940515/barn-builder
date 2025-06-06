@@ -7,8 +7,9 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   preview: {
-    host: true, // <-- this allows external access
-    strictPort: false,
-    allowedHosts: ['barn-demo.gregdoesdev.xyz'], // required for domain access
+    host: '0.0.0.0',
+    port: 9007,
+    strictPort: true,
+    allowedHosts: ['barn-demo.gregdoesdev.xyz'],
   },
 });
