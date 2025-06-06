@@ -7,8 +7,9 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   preview: {
-    host: true,
-    port: 9007,
+    host: '0.0.0.0', // allow container-wide access
+    port: 9007,       // or whatever your container exposes
     strictPort: true,
+    allowedHosts: ['barn-demo.gregdoesdev.xyz'], // 👈 important
   },
 });
