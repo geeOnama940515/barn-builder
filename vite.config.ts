@@ -10,6 +10,5 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 9007,
     strictPort: true,
-    allowedHosts: ['barn-demo.gregdoesdev.xyz'],
   },
 });
