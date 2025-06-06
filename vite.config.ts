@@ -1,13 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
   preview: {
-    allowedHosts: ['barn-demo.gregdoesdev.xyz'],
+    host: true, // <-- this allows external access
+    strictPort: false,
+    allowedHosts: ['barn-demo.gregdoesdev.xyz'], // required for domain access
   },
 });
