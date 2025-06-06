@@ -9,8 +9,8 @@ const app = express();
 const PORT = 9007;
 
 // Serve static files from dist directory
-app.use(express.static('dist'));
-app.use(express.static('public'));
+app.use(express.static(join(__dirname, 'dist')));
+app.use(express.static(join(__dirname, 'public')));
 
 // Serve index.html for all routes (SPA support)
 app.get('*', (req, res) => {

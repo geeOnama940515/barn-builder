@@ -13,11 +13,11 @@ async function processCss() {
     autoprefixer
   ]).process(css, {
     from: 'src/index.css',
-    to: 'dist/index.css'
+    to: 'dist/style.css'
   });
 
   await mkdir('dist', { recursive: true });
-  writeFileSync('dist/index.css', result.css);
+  writeFileSync('dist/style.css', result.css);
 }
 
 async function build() {
@@ -34,7 +34,6 @@ async function build() {
         '.tsx': 'tsx',
         '.ts': 'ts',
         '.js': 'jsx',
-        '.css': 'css',
       },
       minify: true,
       sourcemap: true,
@@ -46,14 +45,11 @@ async function build() {
       plugins: [],
     });
 
-    // Copy index.html to dist
-    await copyFile('index.html', join('dist', 'index.html'));
-
-    // Update index.html to include processed CSS
-    let html = readFileSync(join('dist', 'index.html'), 'utf8');
+    // Copy index.html and update it
+    let html = readFileSync('index.html', 'utf8');
     html = html.replace(
       '</head>',
-      '<link rel="stylesheet" href="/index.css"></head>'
+      '<link rel="stylesheet" href="/style.css">\n</head>'
     );
     writeFileSync(join('dist', 'index.html'), html);
 
